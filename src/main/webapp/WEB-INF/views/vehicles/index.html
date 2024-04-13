@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<H3>List of Vehicle</H3>
+<hr>
+
+<div th:each="vehicle : ${vehicles}">
+    <a th:href="@{/vehicle/{id}(id=${vehicle.getId()})}"
+       th:text="'Price: ' + ${vehicle.getPrice() + ', Year of manufacture: ' + vehicle.getYearOfManufacture() + ', Mileage: ' + vehicle.getMileage() + ', Color: ' + vehicle.getColor()}">user</a>
+</div>
+
+
+<br/>
+<hr/>
+
+<!--<a href="/people/new">Create new person</a>-->
+
+</body>
+</html>
