@@ -21,14 +21,12 @@ public class VehicleController {
 
     @GetMapping()
     public String index(Model model) {
-        //model.addAttribute("vehicle", vehicleServices.findAll());
         model.addAttribute("vehicles", vehicleServices.findAll());
         return "vehicles/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-//        model.addAttribute("person", personDAO.show(id));
         model.addAttribute("vehicle", vehicleServices.findOne(id));
         return "vehicles/show";
     }
