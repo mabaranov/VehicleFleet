@@ -11,14 +11,14 @@
 
 <div th:each="vehicle : ${vehicles}">
     <a th:href="@{/vehicle/{id}(id=${vehicle.getId()})}"
-       th:text="'Price: ' + ${vehicle.getPrice() + ', Year of manufacture: ' + vehicle.getYearOfManufacture() + ', Mileage: ' + vehicle.getMileage() + ', Color: ' + vehicle.getColor()}">user</a>
+       th:text="'Id: ' + ${vehicle.getId()} + ', Price: ' + ${vehicle.getPrice() + ', Year of manufacture: ' + vehicle.getYearOfManufacture() + ', Mileage: ' + vehicle.getMileage() + ', Color: ' + vehicle.getColor()}">user</a>
 </div>
 
 
 <br/>
 <hr/>
 
-<!--<a href="/people/new">Create new person</a>-->
+<a href="/vehicle/new">Create new vehicle</a>
 
 </body>
 </html>

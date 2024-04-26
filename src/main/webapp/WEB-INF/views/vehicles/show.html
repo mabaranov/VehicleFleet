@@ -5,14 +5,19 @@
     <title>Show vehicle</title>
 </head>
 <body>
-<p>Show vehicle info</p>
-<br>
-<p th:text="123">VAL</p>
-<p th:text="${vehicle.getId() + ', ' + vehicle.getPrice()}">VALUE</p>
-<!--<p th:text="${'Email: ' + person.getEmail()}">VALUE</p>-->
-<!--<p th:text="${person.getId()}">VALUE</p>-->
+<H3>Show vehicle info</H3>
+<hr>
+<p th:text="'ID: ' + ${vehicle.getId()}">VALUE</p>
+<p th:text="'PRICE: ' + ${vehicle.getPrice()}">VALUE</p>
+<p th:text="'YEAR OF MANUFACTURE: ' + ${vehicle.getYearOfManufacture()}">VALUE</p>
+<p th:text="'MILEAGE: ' + ${vehicle.getMileage}">VALUE</p>
+<p th:text="'COLOR: ' + ${vehicle.getColor}">VALUE</p>
+<hr>
+<a th:href="@{/vehicle/{id}/edit(id=${vehicle.getId()})}">Edit</a>
 
-<!--<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>-->
+<form th:method="DELETE" th:action="@{/vehicle/{id}(id=${vehicle.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
 
 </body>
 </html>

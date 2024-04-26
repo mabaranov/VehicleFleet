@@ -42,9 +42,9 @@ public class VehicleServices {
         vehiclesRepositories.deleteById(id);
     }
 
-//    @Transactional
-//    public void update(int id, Vehicle updatedPerson) {
-//        updatedPerson.setId(id);
-//        vehiclesRepositories.save(updatedPerson);
-//    }
+    @Transactional
+    public void update(int id, Vehicle updatedVehicle) {
+        updatedVehicle.setId(id);
+        vehiclesRepositories.save(updatedVehicle);
+    }
 }

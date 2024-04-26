@@ -11,7 +11,7 @@
 
 <div th:each="brand : ${brands}">
     <a th:href="@{/brand/{id}(id=${brand.getId()})}"
-       th:text="'Name: ' + ${brand.getName() + ', Type: ' + brand.getType() + ', Tank(liters): ' + brand.getTankInLiters() + ', LiftingCapacity(tons): ' + brand.getLiftingCapacityInTons() + ', Seats: ' + brand.getNumberOfSeats()}">user</a>
+       th:text="'Id: ' + ${brand.getId()} + ', Name: ' + ${brand.getName() + ', Type: ' + brand.getType() + ', Tank(liters): ' + brand.getTankInLiters() + ', LiftingCapacity(tons): ' + brand.getLiftingCapacityInTons() + ', Seats: ' + brand.getNumberOfSeats()}">user</a>
 </div>
 
 
