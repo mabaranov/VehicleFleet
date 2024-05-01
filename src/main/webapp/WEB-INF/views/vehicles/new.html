@@ -7,6 +7,13 @@
 <body>
 
 <form th:method="POST" th:action="@{/vehicle}" th:object="${vehicle}">
+    <label for="brand">Enter brand: </label>
+<!--    <input type="text" th:field="*{brand}" id="brand"/>-->
+<!--    <select th:object="${brand}" th:field="*{id}" id="brand">-->
+    <select th:field="*{brand.id}" id="brand">
+        <option th:each="brand: ${brandList}" th:value="${brand.getId()}" th:text="${brand.getName()}" />
+    </select>
+    <br/>
     <label for="price">Enter price: </label>
     <input type="text" th:field="*{price}" id="price"/>
     <br/>

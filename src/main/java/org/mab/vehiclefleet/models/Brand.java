@@ -2,6 +2,8 @@ package org.mab.vehiclefleet.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="Brand")
 public class Brand {
@@ -21,7 +23,19 @@ public class Brand {
     @Column(name="number_of_seats")
     private int numberOfSeats;
 
+    @OneToMany(mappedBy = "brand")
+    private List<Vehicle> vehicles;
+
     public Brand() {
+    }
+
+    public Brand(String name, String type, int tankInLiters, int liftingCapacityInTons, int numberOfSeats, List<Vehicle> vehicles) {
+        this.name = name;
+        this.type = type;
+        this.tankInLiters = tankInLiters;
+        this.liftingCapacityInTons = liftingCapacityInTons;
+        this.numberOfSeats = numberOfSeats;
+        this.vehicles = vehicles;
     }
 
     public Brand(String name, String type, int tankInLiters, int liftingCapacityInTons, int numberOfSeats) {
@@ -34,6 +48,10 @@ public class Brand {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

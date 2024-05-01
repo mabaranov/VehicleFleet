@@ -42,9 +42,9 @@ public class BrandServices {
         brandsRepositories.deleteById(id);
     }
 
-//    @Transactional
-//    public void update(int id, Vehicle updatedPerson) {
-//        updatedPerson.setId(id);
-//        vehiclesRepositories.save(updatedPerson);
-//    }
+    @Transactional
+    public void update(int id, Brand updatedBrand) {
+        updatedBrand.setId(id);
+        brandsRepositories.save(updatedBrand);
+    }
 }

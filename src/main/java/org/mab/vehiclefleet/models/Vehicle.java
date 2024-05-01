@@ -19,14 +19,19 @@ public class Vehicle {
     @Column(name="color")
     private String color;
 
+    @ManyToOne
+    @JoinColumn(name="brand_id", referencedColumnName = "id")
+    private Brand brand;
+
     public Vehicle() {
     }
 
-    public Vehicle(int price, int year_of_manufacture, int mileage, String color) {
+    public Vehicle(int price, int yearOfManufacture, int mileage, String color, Brand brand) {
         this.price = price;
-        this.yearOfManufacture = year_of_manufacture;
+        this.yearOfManufacture = yearOfManufacture;
         this.mileage = mileage;
         this.color = color;
+        this.brand = brand;
     }
 
     public void setId(int id) {
@@ -35,6 +40,14 @@ public class Vehicle {
 
     public int getId() {
         return id;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public int getPrice() {

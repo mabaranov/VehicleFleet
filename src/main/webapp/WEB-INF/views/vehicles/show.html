@@ -8,6 +8,7 @@
 <H3>Show vehicle info</H3>
 <hr>
 <p th:text="'ID: ' + ${vehicle.getId()}">VALUE</p>
+<p th:text="'BRAND: ' + ${vehicle.getBrand().getName()}">VALUE</p>
 <p th:text="'PRICE: ' + ${vehicle.getPrice()}">VALUE</p>
 <p th:text="'YEAR OF MANUFACTURE: ' + ${vehicle.getYearOfManufacture()}">VALUE</p>
 <p th:text="'MILEAGE: ' + ${vehicle.getMileage}">VALUE</p>
