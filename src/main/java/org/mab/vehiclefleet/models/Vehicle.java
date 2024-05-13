@@ -1,5 +1,6 @@
 package org.mab.vehiclefleet.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Vehicle {
 
     @ManyToOne
     @JoinColumn(name="brand_id", referencedColumnName = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     private Brand brand;
 
     public Vehicle() {

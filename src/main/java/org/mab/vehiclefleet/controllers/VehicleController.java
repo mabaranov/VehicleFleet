@@ -1,5 +1,6 @@
 package org.mab.vehiclefleet.controllers;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.Valid;
 import org.mab.vehiclefleet.models.Brand;
 import org.mab.vehiclefleet.models.Vehicle;
@@ -74,5 +75,17 @@ public class VehicleController {
     public String delete(@PathVariable("id") int id) {
         vehicleServices.delete(id);
         return "redirect:/vehicle";
+    }
+
+    @ResponseBody
+    @GetMapping("/allVehicles")
+    public List<Vehicle> getVehicles() {
+        return vehicleServices.findAll();
+    }
+
+    @ResponseBody
+    @GetMapping("/allBrands")
+    public List<Brand> getBrands() {
+        return brandServices.findAll();
     }
 }
