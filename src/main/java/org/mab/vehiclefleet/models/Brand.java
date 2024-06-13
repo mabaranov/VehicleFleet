@@ -1,8 +1,6 @@
 package org.mab.vehiclefleet.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -28,7 +26,8 @@ public class Brand {
     @Column(name="number_of_seats")
     private int numberOfSeats;
 
-    @OneToMany(mappedBy = "brand")
+    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER)
+    @JsonIdentityReference(alwaysAsId = true)
     private List<Vehicle> vehicles;
 
     public Brand() {
@@ -97,6 +96,14 @@ public class Brand {
 
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 
     @Override
